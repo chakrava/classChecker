@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<jnlp href="launch.jnlp" spec="1.0+">
+    <information>
+        <title>ClassSchedule</title>
+        <vendor>Erik Storla</vendor>
+        <homepage href=""/>
+        <description>ClassSchedule</description>
+        <description kind="short">ClassSchedule</description>
+    </information>
+    <update check="always"/>
+    <security>
+<all-permissions/>
+</security>
+    <resources>
+        <j2se java-vm-args="-Djava.security.policy=applet.policy" version="1.7+"/>
+        <jar href="ClassSchedule.jar" main="true"/>
+    <jar href="lib/jfxrt.jar"/>
+<jar href="lib/beansbinding-1.2.1.jar"/>
+<jar href="lib/joda-time-2.3.jar"/>
+</resources>
+    <application-desc main-class="classschedule.DesktopUI">
+    </application-desc>
+</jnlp>
