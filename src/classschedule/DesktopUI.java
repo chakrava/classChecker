@@ -321,7 +321,7 @@ public class DesktopUI extends javax.swing.JFrame {
     private void buttonSearchClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonSearchClicked
         try {
             //outputClasses.append("this");
-            doStuff();
+            runClicked();
         } catch (ParseException ex) {
             Logger.getLogger(DesktopUI.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -406,7 +406,7 @@ public class DesktopUI extends javax.swing.JFrame {
         jLabel2.setVisible(boxGaps.isSelected());
     }//GEN-LAST:event_boxGapsMouseClicked
 
-    private void doStuff() throws ParseException{//do all the stuff the program does
+    private void runClicked() throws ParseException{//do all the stuff the program does
         roomInputFormat();
         scrapeData();//outputClasses.append("this");
         DefaultTableModel classTable = updateTable();
@@ -473,7 +473,7 @@ public class DesktopUI extends javax.swing.JFrame {
     
     private void inputKeyPressed(java.awt.event.KeyEvent pressed) throws ParseException{
         if (pressed.getKeyChar()=='\n'){//if Enter is hit, run search
-            doStuff();
+            runClicked();
         }
     }
     
