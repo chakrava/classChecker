@@ -28,10 +28,11 @@ import org.joda.time.Interval;
 public class DesktopUI extends javax.swing.JFrame {
     
     //Starting months for each semester
+    //January is 0
     private static final int SEM_FALL=8;
     private static final int SEM_SUM=5;
     private static final int SEM_SPR=2;
-    private final long TIME_WARN=1800000;
+    private static final long TIME_WARN=1800000;//30 minutes, listed in milliseconds
     
     List<Course> courseList;
     
@@ -41,11 +42,11 @@ public class DesktopUI extends javax.swing.JFrame {
      */
     public DesktopUI() {
         initComponents();
-        jLabel1.setVisible(false);
-        jLabel2.setVisible(false);
-        inputGapLength.setVisible(false);
-        comboStartTime.setVisible(false);
-        comboEndTime.setVisible(false);
+        jlabelGapsLength.setVisible(false);
+        jLabelGapsMinutes.setVisible(false);
+        jTextFieldGapLength.setVisible(false);
+        jComboBoxStartTime.setVisible(false);
+        jComboBoxEndTime.setVisible(false);
     }
 
     /**
@@ -58,36 +59,36 @@ public class DesktopUI extends javax.swing.JFrame {
     private void initComponents() {
 
         semesterGroup = new javax.swing.ButtonGroup();
-        inputYear = new javax.swing.JTextField();
-        inputRoom = new javax.swing.JTextField();
-        labelClassroom = new javax.swing.JLabel();
-        labelYear = new javax.swing.JLabel();
-        labelTime = new javax.swing.JLabel();
-        radioSpring = new javax.swing.JRadioButton();
-        radioFall = new javax.swing.JRadioButton();
-        radioSummer = new javax.swing.JRadioButton();
-        buttonSearch = new javax.swing.JButton();
-        buttonWeb = new javax.swing.JButton();
-        inputManualTime = new javax.swing.JTextField();
-        boxManual = new javax.swing.JCheckBox();
-        boxDisplayAll = new javax.swing.JCheckBox();
-        boxGaps = new javax.swing.JCheckBox();
+        jTextFieldYear = new javax.swing.JTextField();
+        jTextFieldRoom = new javax.swing.JTextField();
+        jLabelClassroom = new javax.swing.JLabel();
+        jLabelYear = new javax.swing.JLabel();
+        jLabelTime = new javax.swing.JLabel();
+        jRadioButtonSpring = new javax.swing.JRadioButton();
+        jRadioButtonFall = new javax.swing.JRadioButton();
+        jRadioButtonSummer = new javax.swing.JRadioButton();
+        jButtonSearch = new javax.swing.JButton();
+        jButtonWeb = new javax.swing.JButton();
+        jTextFieldManualTime = new javax.swing.JTextField();
+        jCheckBoxManual = new javax.swing.JCheckBox();
+        jCheckBoxDisplayAll = new javax.swing.JCheckBox();
+        jCheckBoxGaps = new javax.swing.JCheckBox();
         jScrollPane3 = new javax.swing.JScrollPane();
         outputClasses = new javax.swing.JTable();
-        labelAuthor = new javax.swing.JLabel();
-        inputManualDay = new javax.swing.JComboBox();
-        labelDay = new javax.swing.JLabel();
-        buttonHelp = new javax.swing.JButton();
-        progressBar = new javax.swing.JProgressBar();
-        inputGapLength = new javax.swing.JTextField();
-        comboStartTime = new javax.swing.JComboBox();
-        comboEndTime = new javax.swing.JComboBox();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        jLabelAuthor = new javax.swing.JLabel();
+        jComboBoxManualDay = new javax.swing.JComboBox();
+        jLabelDay = new javax.swing.JLabel();
+        jButtonHelp = new javax.swing.JButton();
+        jProgressBarProc = new javax.swing.JProgressBar();
+        jTextFieldGapLength = new javax.swing.JTextField();
+        jComboBoxStartTime = new javax.swing.JComboBox();
+        jComboBoxEndTime = new javax.swing.JComboBox();
+        jlabelGapsLength = new javax.swing.JLabel();
+        jLabelGapsMinutes = new javax.swing.JLabel();
 
-        semesterGroup.add(radioSpring);
-        semesterGroup.add(radioFall);
-        semesterGroup.add(radioSummer);
+        semesterGroup.add(jRadioButtonSpring);
+        semesterGroup.add(jRadioButtonFall);
+        semesterGroup.add(jRadioButtonSummer);
         initDate();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -100,79 +101,79 @@ public class DesktopUI extends javax.swing.JFrame {
             }
         });
 
-        inputYear.addKeyListener(new java.awt.event.KeyAdapter() {
+        jTextFieldYear.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                inputYearKeyPressed(evt);
+                jTextFieldYearKeyPressed(evt);
             }
         });
 
-        inputRoom.addKeyListener(new java.awt.event.KeyAdapter() {
+        jTextFieldRoom.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                inputRoomKeyPressed(evt);
+                jTextFieldRoomKeyPressed(evt);
             }
         });
 
-        labelClassroom.setText("Classroom #");
+        jLabelClassroom.setText("Classroom #");
 
-        labelYear.setText("Year");
+        jLabelYear.setText("Year");
 
-        labelTime.setText("Time");
+        jLabelTime.setText("Time");
 
-        radioSpring.setText("Spring");
+        jRadioButtonSpring.setText("Spring");
 
-        radioFall.setText("Fall");
+        jRadioButtonFall.setText("Fall");
 
-        radioSummer.setText("Summer");
+        jRadioButtonSummer.setText("Summer");
 
-        buttonSearch.setText("Search");
-        buttonSearch.addMouseListener(new java.awt.event.MouseAdapter() {
+        jButtonSearch.setText("Search");
+        jButtonSearch.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                buttonSearchClicked(evt);
+                jButtonSearchClicked(evt);
             }
         });
 
-        buttonWeb.setText("Open in Browser");
-        buttonWeb.addMouseListener(new java.awt.event.MouseAdapter() {
+        jButtonWeb.setText("Open in Browser");
+        jButtonWeb.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                buttonWebClicked(evt);
+                jButtonWebClicked(evt);
             }
         });
 
-        inputManualTime.setEnabled(false);
-        inputManualTime.addActionListener(new java.awt.event.ActionListener() {
+        jTextFieldManualTime.setEnabled(false);
+        jTextFieldManualTime.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                inputManualTimeActionPerformed(evt);
+                jTextFieldManualTimeActionPerformed(evt);
             }
         });
-        inputManualTime.addKeyListener(new java.awt.event.KeyAdapter() {
+        jTextFieldManualTime.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                inputManualTimeKeyPressed(evt);
+                jTextFieldManualTimeKeyPressed(evt);
             }
         });
 
-        boxManual.setText("Manual");
-        boxManual.addChangeListener(new javax.swing.event.ChangeListener() {
+        jCheckBoxManual.setText("Manual");
+        jCheckBoxManual.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                boxManualChanged(evt);
+                jCheckBoxManualChanged(evt);
             }
         });
-        boxManual.addActionListener(new java.awt.event.ActionListener() {
+        jCheckBoxManual.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                boxManualActionPerformed(evt);
+                jCheckBoxManualActionPerformed(evt);
             }
         });
 
-        boxDisplayAll.setText("Display All Classes");
-        boxDisplayAll.addActionListener(new java.awt.event.ActionListener() {
+        jCheckBoxDisplayAll.setText("Display All Classes");
+        jCheckBoxDisplayAll.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                boxDisplayAllActionPerformed(evt);
+                jCheckBoxDisplayAllActionPerformed(evt);
             }
         });
 
-        boxGaps.setText("Find Gaps");
-        boxGaps.addMouseListener(new java.awt.event.MouseAdapter() {
+        jCheckBoxGaps.setText("Find Gaps");
+        jCheckBoxGaps.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                boxGapsMouseClicked(evt);
+                jCheckBoxGapsMouseClicked(evt);
             }
         });
 
@@ -180,34 +181,34 @@ public class DesktopUI extends javax.swing.JFrame {
         outputClasses.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_NEXT_COLUMN);
         jScrollPane3.setViewportView(outputClasses);
 
-        labelAuthor.setText("By Erik Storla, estorla@spsu.edu");
+        jLabelAuthor.setText("By Erik Storla, estorla@spsu.edu");
 
-        inputManualDay.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "M", "T", "W", "R", "F" }));
-        inputManualDay.setEnabled(false);
-        inputManualDay.addActionListener(new java.awt.event.ActionListener() {
+        jComboBoxManualDay.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "M", "T", "W", "R", "F" }));
+        jComboBoxManualDay.setEnabled(false);
+        jComboBoxManualDay.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                inputManualDayActionPerformed(evt);
+                jComboBoxManualDayActionPerformed(evt);
             }
         });
 
-        labelDay.setText("Day");
+        jLabelDay.setText("Day");
 
-        buttonHelp.setText("Help");
-        buttonHelp.addActionListener(new java.awt.event.ActionListener() {
+        jButtonHelp.setText("Help");
+        jButtonHelp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonHelpActionPerformed(evt);
+                jButtonHelpActionPerformed(evt);
             }
         });
 
-        inputGapLength.setText("15");
+        jTextFieldGapLength.setText("15");
 
-        comboStartTime.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "8:00am", "8:30am", "9:00am", "9:30am", "10:00am", "10:30am", "11:00am", "11:30am", "12:00pm", "12:30pm", "1:00pm", "1:30pm", "2:00pm", "2:30pm", "3:00pm", "4:00pm", "4:30pm", "5:00pm", "5:30pm", "6:00pm", "6:30pm", "7:00pm", "7:30pm", "8:00pm", "8:30pm", "9:00pm" }));
+        jComboBoxStartTime.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "8:00am", "8:30am", "9:00am", "9:30am", "10:00am", "10:30am", "11:00am", "11:30am", "12:00pm", "12:30pm", "1:00pm", "1:30pm", "2:00pm", "2:30pm", "3:00pm", "4:00pm", "4:30pm", "5:00pm", "5:30pm", "6:00pm", "6:30pm", "7:00pm", "7:30pm", "8:00pm", "8:30pm", "9:00pm" }));
 
-        comboEndTime.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "8:00am", "8:30am", "9:00am", "9:30am", "10:00am", "10:30am", "11:00am", "11:30am", "12:00pm", "12:30pm", "1:00pm", "1:30pm", "2:00pm", "2:30pm", "3:00pm", "4:00pm", "4:30pm", "5:00pm", "5:30pm", "6:00pm", "6:30pm", "7:00pm", "7:30pm", "8:00pm", "8:30pm", "9:00pm" }));
+        jComboBoxEndTime.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "8:00am", "8:30am", "9:00am", "9:30am", "10:00am", "10:30am", "11:00am", "11:30am", "12:00pm", "12:30pm", "1:00pm", "1:30pm", "2:00pm", "2:30pm", "3:00pm", "4:00pm", "4:30pm", "5:00pm", "5:30pm", "6:00pm", "6:30pm", "7:00pm", "7:30pm", "8:00pm", "8:30pm", "9:00pm" }));
 
-        jLabel1.setText("Gaps of at least:");
+        jlabelGapsLength.setText("Gaps of at least:");
 
-        jLabel2.setText("minutes");
+        jLabelGapsMinutes.setText("minutes");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -217,61 +218,61 @@ public class DesktopUI extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(buttonHelp)
+                        .addComponent(jButtonHelp)
                         .addGap(18, 18, 18)
-                        .addComponent(progressBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jProgressBarProc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(labelAuthor))
+                        .addComponent(jLabelAuthor))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(labelClassroom)
+                                .addComponent(jLabelClassroom)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(inputYear, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(inputRoom, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(jTextFieldYear, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextFieldRoom, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(radioSpring)
+                                .addComponent(jRadioButtonSpring)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(radioFall)
+                                .addComponent(jRadioButtonFall)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(radioSummer))
-                            .addComponent(labelYear))
+                                .addComponent(jRadioButtonSummer))
+                            .addComponent(jLabelYear))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(comboStartTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jComboBoxStartTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(comboEndTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jComboBoxEndTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(labelTime))
+                                .addComponent(jLabelTime))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel1)
+                                .addComponent(jlabelGapsLength)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(inputGapLength, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jTextFieldGapLength, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel2)
+                                .addComponent(jLabelGapsMinutes)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
-                                .addComponent(labelDay))
+                                .addComponent(jLabelDay))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(boxGaps)
+                                .addComponent(jCheckBoxGaps)
                                 .addGap(0, 0, Short.MAX_VALUE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(boxManual)
-                                    .addComponent(inputManualDay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jCheckBoxManual)
+                                    .addComponent(jComboBoxManualDay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(46, 46, 46)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(46, 46, 46)
-                                        .addComponent(buttonSearch))
-                                    .addComponent(buttonWeb, javax.swing.GroupLayout.Alignment.TRAILING)))
+                                        .addComponent(jButtonSearch))
+                                    .addComponent(jButtonWeb, javax.swing.GroupLayout.Alignment.TRAILING)))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(inputManualTime, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jTextFieldManualTime, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(boxDisplayAll))))
+                                .addComponent(jCheckBoxDisplayAll))))
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addContainerGap())
         );
@@ -280,84 +281,84 @@ public class DesktopUI extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(buttonSearch)
-                    .addComponent(radioSpring)
-                    .addComponent(radioFall)
-                    .addComponent(radioSummer)
-                    .addComponent(boxManual)
-                    .addComponent(boxGaps))
+                    .addComponent(jButtonSearch)
+                    .addComponent(jRadioButtonSpring)
+                    .addComponent(jRadioButtonFall)
+                    .addComponent(jRadioButtonSummer)
+                    .addComponent(jCheckBoxManual)
+                    .addComponent(jCheckBoxGaps))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelYear)
-                    .addComponent(inputYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buttonWeb)
-                    .addComponent(labelDay)
-                    .addComponent(inputManualDay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(inputGapLength, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2))
+                    .addComponent(jLabelYear)
+                    .addComponent(jTextFieldYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonWeb)
+                    .addComponent(jLabelDay)
+                    .addComponent(jComboBoxManualDay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldGapLength, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jlabelGapsLength)
+                    .addComponent(jLabelGapsMinutes))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelClassroom)
-                    .addComponent(inputRoom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(inputManualTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelTime)
-                    .addComponent(boxDisplayAll)
-                    .addComponent(comboStartTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(comboEndTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabelClassroom)
+                    .addComponent(jTextFieldRoom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldManualTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelTime)
+                    .addComponent(jCheckBoxDisplayAll)
+                    .addComponent(jComboBoxStartTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBoxEndTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(7, 7, 7)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 451, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(labelAuthor)
-                    .addComponent(buttonHelp)
-                    .addComponent(progressBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabelAuthor)
+                    .addComponent(jButtonHelp)
+                    .addComponent(jProgressBarProc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void buttonSearchClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonSearchClicked
+    private void jButtonSearchClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonSearchClicked
         try {
             //outputClasses.append("this");
             runClicked();
         } catch (ParseException ex) {
             Logger.getLogger(DesktopUI.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_buttonSearchClicked
+    }//GEN-LAST:event_jButtonSearchClicked
 
-    private void inputRoomKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inputRoomKeyPressed
+    private void jTextFieldRoomKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldRoomKeyPressed
         try {
             inputKeyPressed(evt);
         } catch (ParseException ex) {
             Logger.getLogger(DesktopUI.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_inputRoomKeyPressed
+    }//GEN-LAST:event_jTextFieldRoomKeyPressed
 
-    private void inputYearKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inputYearKeyPressed
+    private void jTextFieldYearKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldYearKeyPressed
         try {
             inputKeyPressed(evt);
         } catch (ParseException ex) {
             Logger.getLogger(DesktopUI.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_inputYearKeyPressed
+    }//GEN-LAST:event_jTextFieldYearKeyPressed
 
-    private void buttonWebClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonWebClicked
-        int year=Integer.parseInt(inputYear.getText());
-        String web = getClassData.getURL(year,getRadioInt(),inputRoom.getText());
+    private void jButtonWebClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonWebClicked
+        int year=Integer.parseInt(jTextFieldYear.getText());
+        String web = getClassData.getURL(year,getRadioInt(),jTextFieldRoom.getText());
         try {
             java.awt.Desktop.getDesktop().browse(java.net.URI.create(web));
         } catch (IOException ex) {
             Logger.getLogger(DesktopUI.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_buttonWebClicked
+    }//GEN-LAST:event_jButtonWebClicked
 
-    private void boxManualChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_boxManualChanged
-        inputManualTime.setEnabled(boxManual.isSelected());
-        inputManualDay.setEnabled(boxManual.isSelected());
+    private void jCheckBoxManualChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jCheckBoxManualChanged
+        jTextFieldManualTime.setEnabled(jCheckBoxManual.isSelected());
+        jComboBoxManualDay.setEnabled(jCheckBoxManual.isSelected());
         //inputManualTime.setVisible(boxManualTime.isSelected());
-    }//GEN-LAST:event_boxManualChanged
+    }//GEN-LAST:event_jCheckBoxManualChanged
 
     private void keyPressedMainFrame(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_keyPressedMainFrame
         try {
@@ -367,51 +368,51 @@ public class DesktopUI extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_keyPressedMainFrame
 
-    private void inputManualTimeKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inputManualTimeKeyPressed
+    private void jTextFieldManualTimeKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldManualTimeKeyPressed
         try {
             inputKeyPressed(evt);
         } catch (ParseException ex) {
             Logger.getLogger(DesktopUI.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_inputManualTimeKeyPressed
+    }//GEN-LAST:event_jTextFieldManualTimeKeyPressed
 
-    private void boxManualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boxManualActionPerformed
+    private void jCheckBoxManualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxManualActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_boxManualActionPerformed
+    }//GEN-LAST:event_jCheckBoxManualActionPerformed
 
-    private void inputManualDayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputManualDayActionPerformed
+    private void jComboBoxManualDayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxManualDayActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_inputManualDayActionPerformed
+    }//GEN-LAST:event_jComboBoxManualDayActionPerformed
 
-    private void inputManualTimeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputManualTimeActionPerformed
+    private void jTextFieldManualTimeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldManualTimeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_inputManualTimeActionPerformed
+    }//GEN-LAST:event_jTextFieldManualTimeActionPerformed
 
-    private void boxDisplayAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boxDisplayAllActionPerformed
+    private void jCheckBoxDisplayAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxDisplayAllActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_boxDisplayAllActionPerformed
+    }//GEN-LAST:event_jCheckBoxDisplayAllActionPerformed
 
-    private void buttonHelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonHelpActionPerformed
+    private void jButtonHelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonHelpActionPerformed
         JOptionPane.showMessageDialog(null, "Help coming soon (maybe)\n\nSend questions, comments, bug reports to:\nestorla@spsu.edu", "Coming soon", JOptionPane.INFORMATION_MESSAGE);
-    }//GEN-LAST:event_buttonHelpActionPerformed
+    }//GEN-LAST:event_jButtonHelpActionPerformed
 
-    private void boxGapsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boxGapsMouseClicked
+    private void jCheckBoxGapsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCheckBoxGapsMouseClicked
         //inputGapLength.setEnabled(boxGaps.isSelected());
-        inputGapLength.setVisible(boxGaps.isSelected());
+        jTextFieldGapLength.setVisible(jCheckBoxGaps.isSelected());
         //comboStartTime.setEnabled(boxGaps.isSelected());
-        comboStartTime.setVisible(boxGaps.isSelected());
+        jComboBoxStartTime.setVisible(jCheckBoxGaps.isSelected());
         //comboEndTime.setEnabled(boxGaps.isSelected());
-        comboEndTime.setVisible(boxGaps.isSelected());
-        jLabel1.setVisible(boxGaps.isSelected());
-        jLabel2.setVisible(boxGaps.isSelected());
-    }//GEN-LAST:event_boxGapsMouseClicked
+        jComboBoxEndTime.setVisible(jCheckBoxGaps.isSelected());
+        jlabelGapsLength.setVisible(jCheckBoxGaps.isSelected());
+        jLabelGapsMinutes.setVisible(jCheckBoxGaps.isSelected());
+    }//GEN-LAST:event_jCheckBoxGapsMouseClicked
 
     private void runClicked() throws ParseException{//do all the stuff the program does
         roomInputFormat();
         scrapeData();//outputClasses.append("this");
         DefaultTableModel classTable = updateTable();
         
-        if(!boxGaps.isSelected())
+        if(!jCheckBoxGaps.isSelected())
             displayRooms(classTable);
         else
             checkGap();
@@ -426,13 +427,13 @@ public class DesktopUI extends javax.swing.JFrame {
         int year=cal.get(Calendar.YEAR);//get year
         
         if(month>=SEM_FALL)//select semester button based off date
-            radioFall.setSelected(true);
+            jRadioButtonFall.setSelected(true);
         else if(month>=SEM_SUM)
-            radioSummer.setSelected(true);
+            jRadioButtonSummer.setSelected(true);
         else
-            radioSpring.setSelected(true);
+            jRadioButtonSpring.setSelected(true);
         
-        inputYear.setText(""+year);//set Year box
+        jTextFieldYear.setText(""+year);//set Year box
         
         //inputManualDay.setSelectedItem(dayOfWeek());//set Day box, doesn't work??
     }
@@ -440,8 +441,8 @@ public class DesktopUI extends javax.swing.JFrame {
     private Date getTimeNow() throws ParseException{//get current time and return it as Date object
         DateFormat tf = new SimpleDateFormat("h:mma");
         
-        if(boxManual.isSelected())
-            return tf.parse(inputManualTime.getText());
+        if(jCheckBoxManual.isSelected())
+            return tf.parse(jTextFieldManualTime.getText());
         
         String time;
         
@@ -478,8 +479,8 @@ public class DesktopUI extends javax.swing.JFrame {
     }
     
     private void roomInputFormat(){//remove whitespace and capitilize room box
-    String temp = inputRoom.getText();
-    inputRoom.setText(temp.replaceAll(" ","").toUpperCase());
+    String temp = jTextFieldRoom.getText();
+    jTextFieldRoom.setText(temp.replaceAll(" ","").toUpperCase());
     }
     
     private DefaultTableModel updateTable() throws ParseException{
@@ -488,11 +489,11 @@ public class DesktopUI extends javax.swing.JFrame {
     }
     
     private void scrapeData() throws ParseException{//get info and store as courseList
-        int year=Integer.parseInt(inputYear.getText());
+        int year=Integer.parseInt(jTextFieldYear.getText());
         
-        progressBar.setValue(0);
+        jProgressBarProc.setValue(0);
         //int progress=0;
-        progressBar.setIndeterminate(true);
+        jProgressBarProc.setIndeterminate(true);
         
         
         //List<Course> courseList = getClassData.getData(year,getRadioInt());//,inputRoom.getText());
@@ -501,8 +502,8 @@ public class DesktopUI extends javax.swing.JFrame {
             List<Course> temp=getClassData.getData(year,getRadioInt());//,inputRoom.getText());
             courseList = temp;
         }
-        progressBar.setIndeterminate(false);
-        progressBar.setValue(progressBar.getMaximum());
+        jProgressBarProc.setIndeterminate(false);
+        jProgressBarProc.setValue(jProgressBarProc.getMaximum());
         //fillDataRoom(year, classTable);
     }
     
@@ -510,10 +511,10 @@ public class DesktopUI extends javax.swing.JFrame {
         
         for(int i=0;i<courseList.size();i++){
             //checkTimeColor(courseList.get(i));//Deprecated
-            if(courseList.get(i).getRoom().contains(inputRoom.getText().toUpperCase())
-                &&(boxDisplayAll.isSelected()//display all if "display all" is checked
+            if(courseList.get(i).getRoom().contains(jTextFieldRoom.getText().toUpperCase())
+                &&(jCheckBoxDisplayAll.isSelected()//display all if "display all" is checked
                 ||(checkTimeColor(courseList.get(i))!=0)//or if the class is coming up or in session
-                ||(courseList.get(i).getDays().contains(inputManualDay.getSelectedItem().toString()))))//or if class takes place on day
+                ||(courseList.get(i).getDays().contains(jComboBoxManualDay.getSelectedItem().toString()))))//or if class takes place on day
                     classTable.addRow(dataFormat(courseList.get(i),true));//(inputRoom.getText().length()<=1)));//add class to table
         }
             
@@ -556,7 +557,7 @@ public class DesktopUI extends javax.swing.JFrame {
         classTable.setColumnCount(0);
         
         classTable.addColumn("Class");
-        if(true||inputRoom.getText().length()<=1)
+        if(true||jTextFieldRoom.getText().length()<=1)
             classTable.addColumn("Room");
         classTable.addColumn("Instructor");
         classTable.addColumn("Days");
@@ -612,12 +613,12 @@ public class DesktopUI extends javax.swing.JFrame {
     
     private int checkTimeColor(Course c) throws ParseException{
         Date now=getTimeNow();//get current time
-        inputManualTime.setText(""+getTimeNowString());
+        jTextFieldManualTime.setText(""+getTimeNowString());
         
-        if(!boxManual.isSelected())
-            inputManualDay.setSelectedItem(dayOfWeek());//if Manual is not set, set Day to check to current day
+        if(!jCheckBoxManual.isSelected())
+            jComboBoxManualDay.setSelectedItem(dayOfWeek());//if Manual is not set, set Day to check to current day
         
-        if(!c.getDays().contains(inputManualDay.getSelectedItem().toString()))//if the days of the class does not include the Day to check
+        if(!c.getDays().contains(jComboBoxManualDay.getSelectedItem().toString()))//if the days of the class does not include the Day to check
             return 0;
         
         if(now.before(c.getStart())&&
@@ -641,8 +642,8 @@ public class DesktopUI extends javax.swing.JFrame {
         
         for(int i=0;i<courseList.size();i++){
             Course tempCourse= courseList.get(i);
-            if(tempCourse.getRoom().contains(inputRoom.getText())
-                    &&tempCourse.getDays().contains(inputManualDay.getSelectedItem().toString())){
+            if(tempCourse.getRoom().contains(jTextFieldRoom.getText())
+                    &&tempCourse.getDays().contains(jComboBoxManualDay.getSelectedItem().toString())){
                 if(courses.size()>0){
                     boolean changed=false;
                     for(int j=0;j<courses.size()&&!changed;j++){
@@ -677,8 +678,8 @@ public class DesktopUI extends javax.swing.JFrame {
         //List<dateThing> sched= new ArrayList<>();
         
         //get the start and end times of the window to check
-        Date toCheckStart=timeToDate(comboStartTime.getSelectedItem().toString());
-        Date toCheckEnd=timeToDate(comboEndTime.getSelectedItem().toString());
+        Date toCheckStart=timeToDate(jComboBoxStartTime.getSelectedItem().toString());
+        Date toCheckEnd=timeToDate(jComboBoxEndTime.getSelectedItem().toString());
         
         //temp.add(new Gap(toCheckStart,toCheckEnd));//start with the entire window to check open
         
@@ -770,11 +771,11 @@ public class DesktopUI extends javax.swing.JFrame {
     }
     
     private int getRadioInt(){
-        if(radioSpring.isSelected())
+        if(jRadioButtonSpring.isSelected())
             return SEM_SPR;
-        if(radioFall.isSelected())
+        if(jRadioButtonFall.isSelected())
             return SEM_FALL;
-        if(radioSummer.isSelected())
+        if(jRadioButtonSummer.isSelected())
             return SEM_SUM;
         return 0;
     }
@@ -820,32 +821,32 @@ public class DesktopUI extends javax.swing.JFrame {
         
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JCheckBox boxDisplayAll;
-    private javax.swing.JCheckBox boxGaps;
-    private javax.swing.JCheckBox boxManual;
-    private javax.swing.JButton buttonHelp;
-    private javax.swing.JButton buttonSearch;
-    private javax.swing.JButton buttonWeb;
-    private javax.swing.JComboBox comboEndTime;
-    private javax.swing.JComboBox comboStartTime;
-    private javax.swing.JTextField inputGapLength;
-    private javax.swing.JComboBox inputManualDay;
-    private javax.swing.JTextField inputManualTime;
-    private javax.swing.JTextField inputRoom;
-    private javax.swing.JTextField inputYear;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JButton jButtonHelp;
+    private javax.swing.JButton jButtonSearch;
+    private javax.swing.JButton jButtonWeb;
+    private javax.swing.JCheckBox jCheckBoxDisplayAll;
+    private javax.swing.JCheckBox jCheckBoxGaps;
+    private javax.swing.JCheckBox jCheckBoxManual;
+    private javax.swing.JComboBox jComboBoxEndTime;
+    private javax.swing.JComboBox jComboBoxManualDay;
+    private javax.swing.JComboBox jComboBoxStartTime;
+    private javax.swing.JLabel jLabelAuthor;
+    private javax.swing.JLabel jLabelClassroom;
+    private javax.swing.JLabel jLabelDay;
+    private javax.swing.JLabel jLabelGapsMinutes;
+    private javax.swing.JLabel jLabelTime;
+    private javax.swing.JLabel jLabelYear;
+    private javax.swing.JProgressBar jProgressBarProc;
+    private javax.swing.JRadioButton jRadioButtonFall;
+    private javax.swing.JRadioButton jRadioButtonSpring;
+    private javax.swing.JRadioButton jRadioButtonSummer;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JLabel labelAuthor;
-    private javax.swing.JLabel labelClassroom;
-    private javax.swing.JLabel labelDay;
-    private javax.swing.JLabel labelTime;
-    private javax.swing.JLabel labelYear;
+    private javax.swing.JTextField jTextFieldGapLength;
+    private javax.swing.JTextField jTextFieldManualTime;
+    private javax.swing.JTextField jTextFieldRoom;
+    private javax.swing.JTextField jTextFieldYear;
+    private javax.swing.JLabel jlabelGapsLength;
     private javax.swing.JTable outputClasses;
-    private javax.swing.JProgressBar progressBar;
-    private javax.swing.JRadioButton radioFall;
-    private javax.swing.JRadioButton radioSpring;
-    private javax.swing.JRadioButton radioSummer;
     private javax.swing.ButtonGroup semesterGroup;
     // End of variables declaration//GEN-END:variables
 }

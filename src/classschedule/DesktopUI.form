@@ -4,7 +4,7 @@
   <NonVisualComponents>
     <Component class="javax.swing.ButtonGroup" name="semesterGroup">
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="semesterGroup.add(radioSpring);&#xa;semesterGroup.add(radioFall);&#xa;semesterGroup.add(radioSummer);&#xa;initDate();"/>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="semesterGroup.add(jRadioButtonSpring);&#xa;semesterGroup.add(jRadioButtonFall);&#xa;semesterGroup.add(jRadioButtonSummer);&#xa;initDate();"/>
       </AuxValues>
     </Component>
   </NonVisualComponents>
@@ -42,51 +42,51 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="buttonHelp" min="-2" max="-2" attributes="0"/>
+                      <Component id="jButtonHelp" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="progressBar" min="-2" max="-2" attributes="0"/>
+                      <Component id="jProgressBarProc" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
-                      <Component id="labelAuthor" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabelAuthor" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="labelClassroom" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabelClassroom" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="inputYear" alignment="0" min="-2" pref="51" max="-2" attributes="0"/>
-                                  <Component id="inputRoom" alignment="0" min="-2" pref="75" max="-2" attributes="0"/>
+                                  <Component id="jTextFieldYear" alignment="0" min="-2" pref="51" max="-2" attributes="0"/>
+                                  <Component id="jTextFieldRoom" alignment="0" min="-2" pref="75" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="radioSpring" min="-2" max="-2" attributes="0"/>
+                              <Component id="jRadioButtonSpring" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="radioFall" min="-2" max="-2" attributes="0"/>
+                              <Component id="jRadioButtonFall" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="radioSummer" min="-2" max="-2" attributes="0"/>
+                              <Component id="jRadioButtonSummer" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="labelYear" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelYear" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <Component id="comboStartTime" min="-2" max="-2" attributes="0"/>
+                              <Component id="jComboBoxStartTime" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="comboEndTime" min="-2" max="-2" attributes="0"/>
+                              <Component id="jComboBoxEndTime" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
-                              <Component id="labelTime" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabelTime" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
-                              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                              <Component id="jlabelGapsLength" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="inputGapLength" min="-2" max="-2" attributes="0"/>
+                              <Component id="jTextFieldGapLength" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabelGapsMinutes" min="-2" max="-2" attributes="0"/>
                               <EmptySpace pref="38" max="32767" attributes="0"/>
-                              <Component id="labelDay" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabelDay" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
-                              <Component id="boxGaps" min="-2" max="-2" attributes="0"/>
+                              <Component id="jCheckBoxGaps" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
@@ -94,22 +94,22 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="boxManual" min="-2" max="-2" attributes="0"/>
-                                  <Component id="inputManualDay" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jCheckBoxManual" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jComboBoxManualDay" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" attributes="0">
                                       <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
-                                      <Component id="buttonSearch" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jButtonSearch" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <Component id="buttonWeb" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jButtonWeb" alignment="1" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" attributes="0">
-                              <Component id="inputManualTime" min="-2" pref="73" max="-2" attributes="0"/>
+                              <Component id="jTextFieldManualTime" min="-2" pref="73" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="boxDisplayAll" min="-2" max="-2" attributes="0"/>
+                              <Component id="jCheckBoxDisplayAll" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -124,41 +124,41 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="buttonSearch" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="radioSpring" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="radioFall" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="radioSummer" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="boxManual" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="boxGaps" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jButtonSearch" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jRadioButtonSpring" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jRadioButtonFall" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jRadioButtonSummer" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jCheckBoxManual" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jCheckBoxGaps" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="labelYear" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="inputYear" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="buttonWeb" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="labelDay" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="inputManualDay" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="inputGapLength" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelYear" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jTextFieldYear" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jButtonWeb" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelDay" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jComboBoxManualDay" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jTextFieldGapLength" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jlabelGapsLength" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelGapsMinutes" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="labelClassroom" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="inputRoom" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="inputManualTime" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="labelTime" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="boxDisplayAll" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="comboStartTime" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="comboEndTime" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelClassroom" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jTextFieldRoom" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jTextFieldManualTime" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelTime" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jCheckBoxDisplayAll" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jComboBoxStartTime" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jComboBoxEndTime" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
               <Component id="jScrollPane3" pref="451" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="labelAuthor" min="-2" max="-2" attributes="0"/>
-                  <Component id="buttonHelp" min="-2" max="-2" attributes="0"/>
-                  <Component id="progressBar" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelAuthor" min="-2" max="-2" attributes="0"/>
+                  <Component id="jButtonHelp" min="-2" max="-2" attributes="0"/>
+                  <Component id="jProgressBarProc" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -166,94 +166,94 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JTextField" name="inputYear">
+    <Component class="javax.swing.JTextField" name="jTextFieldYear">
       <Events>
-        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="inputYearKeyPressed"/>
+        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextFieldYearKeyPressed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="inputRoom">
+    <Component class="javax.swing.JTextField" name="jTextFieldRoom">
       <Events>
-        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="inputRoomKeyPressed"/>
+        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextFieldRoomKeyPressed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="labelClassroom">
+    <Component class="javax.swing.JLabel" name="jLabelClassroom">
       <Properties>
         <Property name="text" type="java.lang.String" value="Classroom #"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="labelYear">
+    <Component class="javax.swing.JLabel" name="jLabelYear">
       <Properties>
         <Property name="text" type="java.lang.String" value="Year"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="labelTime">
+    <Component class="javax.swing.JLabel" name="jLabelTime">
       <Properties>
         <Property name="text" type="java.lang.String" value="Time"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JRadioButton" name="radioSpring">
+    <Component class="javax.swing.JRadioButton" name="jRadioButtonSpring">
       <Properties>
         <Property name="text" type="java.lang.String" value="Spring"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JRadioButton" name="radioFall">
+    <Component class="javax.swing.JRadioButton" name="jRadioButtonFall">
       <Properties>
         <Property name="text" type="java.lang.String" value="Fall"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JRadioButton" name="radioSummer">
+    <Component class="javax.swing.JRadioButton" name="jRadioButtonSummer">
       <Properties>
         <Property name="text" type="java.lang.String" value="Summer"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="buttonSearch">
+    <Component class="javax.swing.JButton" name="jButtonSearch">
       <Properties>
         <Property name="text" type="java.lang.String" value="Search"/>
       </Properties>
       <Events>
-        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="buttonSearchClicked"/>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButtonSearchClicked"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="buttonWeb">
+    <Component class="javax.swing.JButton" name="jButtonWeb">
       <Properties>
         <Property name="text" type="java.lang.String" value="Open in Browser"/>
       </Properties>
       <Events>
-        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="buttonWebClicked"/>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButtonWebClicked"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="inputManualTime">
+    <Component class="javax.swing.JTextField" name="jTextFieldManualTime">
       <Properties>
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="inputManualTimeActionPerformed"/>
-        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="inputManualTimeKeyPressed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldManualTimeActionPerformed"/>
+        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextFieldManualTimeKeyPressed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JCheckBox" name="boxManual">
+    <Component class="javax.swing.JCheckBox" name="jCheckBoxManual">
       <Properties>
         <Property name="text" type="java.lang.String" value="Manual"/>
       </Properties>
       <Events>
-        <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="boxManualChanged"/>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="boxManualActionPerformed"/>
+        <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="jCheckBoxManualChanged"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBoxManualActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JCheckBox" name="boxDisplayAll">
+    <Component class="javax.swing.JCheckBox" name="jCheckBoxDisplayAll">
       <Properties>
         <Property name="text" type="java.lang.String" value="Display All Classes"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="boxDisplayAllActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBoxDisplayAllActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JCheckBox" name="boxGaps">
+    <Component class="javax.swing.JCheckBox" name="jCheckBoxGaps">
       <Properties>
         <Property name="text" type="java.lang.String" value="Find Gaps"/>
       </Properties>
       <Events>
-        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="boxGapsMouseClicked"/>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jCheckBoxGapsMouseClicked"/>
       </Events>
     </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane3">
@@ -273,12 +273,12 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JLabel" name="labelAuthor">
+    <Component class="javax.swing.JLabel" name="jLabelAuthor">
       <Properties>
         <Property name="text" type="java.lang.String" value="By Erik Storla, estorla@spsu.edu"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JComboBox" name="inputManualDay">
+    <Component class="javax.swing.JComboBox" name="jComboBoxManualDay">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="5">
@@ -292,30 +292,30 @@
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="inputManualDayActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboBoxManualDayActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="labelDay">
+    <Component class="javax.swing.JLabel" name="jLabelDay">
       <Properties>
         <Property name="text" type="java.lang.String" value="Day"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="buttonHelp">
+    <Component class="javax.swing.JButton" name="jButtonHelp">
       <Properties>
         <Property name="text" type="java.lang.String" value="Help"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonHelpActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonHelpActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JProgressBar" name="progressBar">
+    <Component class="javax.swing.JProgressBar" name="jProgressBarProc">
     </Component>
-    <Component class="javax.swing.JTextField" name="inputGapLength">
+    <Component class="javax.swing.JTextField" name="jTextFieldGapLength">
       <Properties>
         <Property name="text" type="java.lang.String" value="15"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JComboBox" name="comboStartTime">
+    <Component class="javax.swing.JComboBox" name="jComboBoxStartTime">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="26">
@@ -349,7 +349,7 @@
         </Property>
       </Properties>
     </Component>
-    <Component class="javax.swing.JComboBox" name="comboEndTime">
+    <Component class="javax.swing.JComboBox" name="jComboBoxEndTime">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="26">
@@ -383,12 +383,12 @@
         </Property>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel1">
+    <Component class="javax.swing.JLabel" name="jlabelGapsLength">
       <Properties>
         <Property name="text" type="java.lang.String" value="Gaps of at least:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel2">
+    <Component class="javax.swing.JLabel" name="jLabelGapsMinutes">
       <Properties>
         <Property name="text" type="java.lang.String" value="minutes"/>
       </Properties>
