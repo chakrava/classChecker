@@ -518,7 +518,7 @@ public class DesktopUI extends javax.swing.JFrame {
         }
             
         if(outputClasses!=null && outputClasses.getRowCount()<1)//if no classes found
-            classTable.addRow(new Object[]{"No classes found","","","",0});
+            classTable.addRow(new Object[]{"No classes found","","","","",0});//insert an empty row with message
         
         tableWidth();//adjust column widths to fit data
 //        }
