@@ -32,7 +32,7 @@ public class DesktopUI extends javax.swing.JFrame {
     private static final int SEM_FALL=8;
     private static final int SEM_SUM=5;
     private static final int SEM_SPR=2;
-    private static final long TIME_WARN=1800000;//30 minutes, listed in milliseconds
+    private static final long TIME_WARN=1800000;//30 minutes, listed in milliseconds; used to determine if a class is happening "soon"
     
     List<Course> courseList;
     
@@ -47,6 +47,8 @@ public class DesktopUI extends javax.swing.JFrame {
         jTextFieldGapLength.setVisible(false);
         jComboBoxStartTime.setVisible(false);
         jComboBoxEndTime.setVisible(false);
+        
+        jCheckBoxGaps.setVisible(false);
     }
 
     /**
